@@ -1,0 +1,34 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Reservations</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/ui-darkness/jquery-ui.css">
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<h1>Welcome to the Reservations Page</h1>
+<p>Date: <input type="text" id="datepicker"></p>
+
+<table>
+    <tbody><tr>
+        <td>Room</td>
+        <td>Room Number</td>
+        <td>Guest</td>
+    </tr>
+    <tr th:each="roomReservation: ${roomReservations}">
+        <td th:text="${roomReservations.roomName}">Room Name</td>
+        <td th:text="${roomReservations.roomNumber}">Room Number</td>
+        <td th:text="${roomReservations.lastName} + ', ' + ${roomReservation.firstName}">Full Name</td>
+    </tr>
+
+    </tbody></table>
+
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="js/site.js"></script>
+
+</body></html>
